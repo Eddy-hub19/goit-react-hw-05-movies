@@ -1,6 +1,10 @@
 import { Link, Route, Routes } from 'react-router-dom';
 import { Home } from './Pages/Home';
 import { Movies } from './Pages/Movies';
+
+/* <Container> make to style component
+<Header> make to style component */
+
 export const App = () => {
   return (
     <div
@@ -16,7 +20,6 @@ export const App = () => {
         </Link>
         <Link to="/movies">Movies</Link>
       </nav>
-
       <Routes>
         <Route path="home" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
