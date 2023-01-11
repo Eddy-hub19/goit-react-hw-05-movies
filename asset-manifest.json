@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Eddy-hub19/goit-react-hw-05-movies.git/static/css/main.7acaea2f.css",
-    "main.js": "/Eddy-hub19/goit-react-hw-05-movies.git/static/js/main.07d3183d.js",
+    "main.js": "/Eddy-hub19/goit-react-hw-05-movies.git/static/js/main.6707ede7.js",
     "index.html": "/Eddy-hub19/goit-react-hw-05-movies.git/index.html",
     "main.7acaea2f.css.map": "/Eddy-hub19/goit-react-hw-05-movies.git/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/Eddy-hub19/goit-react-hw-05-movies.git/static/js/main.07d3183d.js.map"
+    "main.6707ede7.js.map": "/Eddy-hub19/goit-react-hw-05-movies.git/static/js/main.6707ede7.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/js/main.6707ede7.js"
   ]
 }
