@@ -2,6 +2,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import { Home } from './Pages/Home';
 import { Movies } from './Pages/Movies';
 
+// console.log(movies);
 /* <Container> make to style component
 <Header> make to style component */
 
@@ -21,7 +22,7 @@ export const App = () => {
         <Link to="/movies">Movies</Link>
       </nav>
       <Routes>
-        <Route path="home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
       </Routes>
     </div>
