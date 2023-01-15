@@ -17,21 +17,21 @@ export const searchMovie = async query => {
   return response.data;
 };
 
-export const fetchMovieById = async movieId => {
-  const response = await fetch(`movie/${movieId}?api_key=${API_KEY}`);
-  console.log(response.data);
-  return response.data;
-};
+// export const fetchMovieById = async movieId => {
+//   const response = await fetch(`movie/${movieId}?api_key=${API_KEY}`);
+//   console.log(response.data);
+//   return response.data;
+// };
 
-export const castMovie = async movieId => {
-  const response = await fetch(`movie/${movieId}/credits?api_key=${API_KEY}`);
-  return response.data;
-};
+// export const castMovie = async movieId => {
+//   const response = await fetch(`movie/${movieId}/credits?api_key=${API_KEY}`);
+//   return response.data;
+// };
 
-export const reviewsMovie = async movieId => {
-  const response = await fetch(`movie/${movieId}/reviews?api_key=${API_KEY}`);
-  return response.data;
-};
+// export const reviewsMovie = async movieId => {
+//   const response = await fetch(`movie/${movieId}/reviews?api_key=${API_KEY}`);
+//   return response.data;
+// };
 
 /* Маршруты */
 

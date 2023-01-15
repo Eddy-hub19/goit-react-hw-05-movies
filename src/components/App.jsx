@@ -2,7 +2,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import { Cast } from './Cast/Cast';
 import { MovieDetails } from './MovieDetails/MovieDetails';
 import { NotFound } from './NotFound/NotFound';
-import { Home } from './Pages/Home';
+import { Home } from './Pages/Home/Home';
 import { Movies } from './Pages/Movies';
 import { Reviews } from './Reviews/Reviews';
 
