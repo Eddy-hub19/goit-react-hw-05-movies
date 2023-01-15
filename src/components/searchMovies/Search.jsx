@@ -12,7 +12,7 @@ export const Search = () => {
 
   const handleChange = e => {
     e.preventDefault();
-    const data = inputEL.current.value
+    const data = inputEL.current.value;
     if (data === '') {
       return toast('Пуста строка! явно потрібно додати щось ще!');
     }
@@ -42,7 +42,7 @@ export const Search = () => {
           placeholder="Fight Club"
         />
         <button className="formSubmit" type="sumbit">
-          Search †
+          Search 🔍
         </button>
       </form>
 
