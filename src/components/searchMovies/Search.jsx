@@ -1,17 +1,20 @@
+import './Seach.styled.css';
+
 import { searchMovie } from 'components/services/api';
 import { useEffect, useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export const Search = () => {
   const [query, setQuery] = useState('');
   const [data, setData] = useState([{}]);
-  // console.log(data);
 
   const inputEL = useRef(null);
 
-  const handleChange = () => {
-    const data = inputEL.current.value;
+  const handleChange = e => {
+    e.preventDefault();
+    const data = inputEL.current.value
     if (data === '') {
-      console.log('Пуста строка! явно потрібно додати щось ще');
+      return toast('Пуста строка! явно потрібно додати щось ще!');
     }
     return setQuery(data);
   };
@@ -21,7 +24,6 @@ export const Search = () => {
       const response = await searchMovie(query);
       const data = response.results;
       setData(data);
-      setQuery('');
     }
 
     fetchData();
@@ -31,20 +33,29 @@ export const Search = () => {
 
   return (
     <>
-      <div>Search</div>
+      <form onSubmit={handleChange}>
+        <h2 className="formSearchTitle">Search</h2>
+        <input
+          className="formInput"
+          type="text"
+          ref={inputEL}
+          placeholder="Fight Club"
+        />
+        <button className="formSubmit" type="sumbit">
+          Search †
+        </button>
+      </form>
 
-      <input type="text" ref={inputEL} />
-      <button type="sumbit" onClick={handleChange}>
-        Search †
-      </button>
-      <ul style={{listStyle: 'none'}}>
+      <ul className="moviesList">
         {data.map(({ id, title, poster_path, overview, popularity }) => (
-          <li key={id}>
-            <img width="300" src={baseImgUrl + poster_path} alt={title} />
-            <div style={{ padding: '40px 10px' }}>
+          <li key={id} className="movieListItem">
+            {poster_path && (
+              <img width="300" src={baseImgUrl + poster_path} alt={title} />
+            )}
+            <div className="moviesWrap">
               <h2>{title}</h2>
               <span>{popularity}</span>
-              <p>{overview}</p>
+              <p className="moviesOverview">{overview}</p>
             </div>
           </li>
         ))}

@@ -1,3 +1,5 @@
+import './Home.styled.css';
+
 import { useEffect, useState } from 'react';
 import { getMovies } from 'components/services/api';
 import { Link } from 'react-router-dom';
@@ -15,8 +17,7 @@ export const Home = () => {
   }, []);
   return (
     <div>
-      <h2>HOME</h2>
-      <h4>Trending today</h4>
+      <h2 className='trendingTitle'>Trending today</h2>
       <ul
         style={{
           display: 'flex',
@@ -24,10 +25,11 @@ export const Home = () => {
           margin: 0,
           padding: 0,
         }}
+        className="moviesList"
       >
         {movies.map(({ id, title }) => (
-          <li key={id}>
-            <Link to={`movies:/${id}`}>{title}</Link>
+          <li key={id} className="movieItem">
+            <Link to={`movies/${id}`}>{title} Fight Club</Link>
           </li>
         ))}
       </ul>

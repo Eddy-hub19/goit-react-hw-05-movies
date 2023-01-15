@@ -1,29 +1,33 @@
 import { Link, Route, Routes } from 'react-router-dom';
+import { Cast } from './Cast/Cast';
+import { MovieDetails } from './MovieDetails/MovieDetails';
+import { NotFound } from './NotFound/NotFound';
 import { Home } from './Pages/Home';
 import { Movies } from './Pages/Movies';
+import { Reviews } from './Reviews/Reviews';
 
-// console.log(movies);
 /* <Container> make to style component
 <Header> make to style component */
 
 export const App = () => {
   return (
-    <div
-      style={{
-        background: 'gray',
-        color: 'white',
-        padding: '40px 70px',
-      }}
-    >
-      <nav>
-        <Link style={{ paddingRight: '30px' }} to="/" className="active">
-          Home
-        </Link>
-        <Link to="/movies">Movies</Link>
-      </nav>
+    <div className="container">
+      <div className="header">
+        <nav className="nav">
+          <Link style={{ paddingRight: '30px' }} to="/" className="active">
+            Home
+          </Link>
+          <Link to="/movies">Movies</Link>
+        </nav>
+      </div>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />} />
+        <Route path="/cast" element={<Cast />} />
+        <Route path="/reviews" element={<Reviews />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

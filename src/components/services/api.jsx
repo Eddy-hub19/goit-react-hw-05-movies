@@ -1,13 +1,9 @@
 import axios from 'axios';
-// const API = '429901df921e7a06d9fe261cd0c4ab69';
-// https://api.themoviedb.org/3/movie/550?api_key=429901df921e7a06d9fe261cd0c4ab69
-// const BASE_URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`;
-
-// ${BASE_URL}movie/${movieId}?api_key=${API_KEY}`);
-// ${ORIGIN}trending/movie/week?api_key=${KEY}`);
 
 const API_KEY = '429901df921e7a06d9fe261cd0c4ab69';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+
+// https://api.themoviedb.org/3movie/315162?api_key=429901df921e7a06d9fe261cd0c4ab69
 
 export const getMovies = async () => {
   const response = await axios.get(`/trending/movie/day?api_key=${API_KEY}`);
@@ -18,12 +14,12 @@ export const searchMovie = async query => {
   const response = await axios.get(
     `/search/movie?api_key=${API_KEY}&query=${query}`
   );
-  console.log(response);
   return response.data;
 };
 
-export const fetchMovie = async movieId => {
+export const fetchMovieById = async movieId => {
   const response = await fetch(`movie/${movieId}?api_key=${API_KEY}`);
+  console.log(response.data);
   return response.data;
 };
 

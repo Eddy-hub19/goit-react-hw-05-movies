@@ -1,0 +1,35 @@
+.formSearchTitle {
+  text-shadow: 4px 6px 7px black;
+}
+
+.formInput {
+  padding: 5px 10px;
+  font-size: 1rem;
+  background: none;
+}
+
+.formSubmit {
+  padding: 5px 10px;
+  font-size: 1rem;
+}
+
+.moviesList {
+  list-style: none;
+}
+
+.movieListItem {
+  display: flex;
+  margin: 50px 0;
+}
+
+.moviesWrap {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 40px 10px;
+  color: black;
+}
+
+.moviesOverview {
+  max-width: 380px;
+}

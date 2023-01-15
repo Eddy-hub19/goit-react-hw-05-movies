@@ -1,0 +1,27 @@
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 100%;
+  color: rgb(188, 136, 31);
+  font-size: 5rem;
+  text-shadow: 5px 5px 1px black;
+  animation: text 3s ease 200ms infinite alternate;
+}
+
+@keyframes text {
+  0% {
+    width: 40%;
+    color: rgb(188, 136, 31);
+  }
+  50% {
+    width: 50%;
+    color: rgb(42, 90, 180);
+  }
+
+  100% {
+    width: 100%;
+    color: rgb(188, 136, 31);
+  }
+}
