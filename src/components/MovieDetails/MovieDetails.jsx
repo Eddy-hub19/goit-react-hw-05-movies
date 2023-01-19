@@ -1,4 +1,6 @@
 // '/movies/:movieId' - компонент MovieDetails, страница с детальной информацией о кинофильме.
+// import { Cast } from 'components/Cast/Cast';
+import { Cast } from 'components/Cast/Cast';
 import { fetchMovieById } from 'components/services/api';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
@@ -38,14 +40,16 @@ export const MovieDetails = () => {
           </div>
           <li>
             <p>Additional info:</p>
-            <Link>Cast</Link>
+            <Link to={`/movies/${movieId}/cast`}>
+              Cast
+            </Link>
           </li>
           <li>
             <Link>Reviews</Link>
           </li>
         </li>
       </ul>
-      <div>Now showing product with id - {movieId}</div>
+      {/* <div>Now showing product with id - {movieId}</div> */}
     </>
   );
 };

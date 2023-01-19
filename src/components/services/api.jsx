@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_KEY = '429901df921e7a06d9fe261cd0c4ab69';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
-// https://api.themoviedb.org/3movie/315162?api_key=429901df921e7a06d9fe261cd0c4ab69
+// https://api.themoviedb.org/3movie/315162/credits?api_key=429901df921e7a06d9fe261cd0c4ab69
 
 export const getMovies = async () => {
   const response = await axios.get(`/trending/movie/day?api_key=${API_KEY}`);
@@ -21,16 +21,18 @@ export const fetchMovieById = async movieId => {
   const response = await axios.get(`/movie/${movieId}?api_key=${API_KEY}`);
   return response.data;
 };
-
-// export const castMovie = async movieId => {
-//   const response = await fetch(`movie/${movieId}/credits?api_key=${API_KEY}`);
-//   return response.data;
-// };
-
-// export const reviewsMovie = async movieId => {
-//   const response = await fetch(`movie/${movieId}/reviews?api_key=${API_KEY}`);
-//   return response.data;
-// };
+export const castMovie = async movieId => {
+  const response = await axios.get(
+    `/movie/${movieId}/credits?api_key=${API_KEY}`
+  );
+  return response.data;
+};
+export const reviewsMovie = async movieId => {
+  const response = await axios.get(
+    `movie/${movieId}/reviews?api_key=${API_KEY}`
+  );
+  return response.data;
+};
 
 /* Маршруты */
 
