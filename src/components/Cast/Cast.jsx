@@ -21,9 +21,9 @@ export const Cast = () => {
 
   return (
     <ul>
-      {cast.map(({ name, character, profile_path }) => (
-        <li>
-          <img src={baseImgUrl + profile_path} alt="" />
+      {cast.map(({ id, name, character, profile_path }) => (
+        <li key={id}>
+          <img src={baseImgUrl + profile_path} alt={profile_path} />
           <h4>{name}</h4>
           <p>{character}</p>
         </li>
