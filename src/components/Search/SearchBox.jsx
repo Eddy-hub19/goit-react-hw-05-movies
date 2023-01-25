@@ -1,6 +1,8 @@
 // import { useState } from "react";
 // import { useSearchParams } from "react-router-dom";
 
+// Це те,що я пробував: воно не працює чомусь)) хоча вроді все прававильно в SearchBox повторював за Репетою тим прикладо,що в конспекті
+
 // export const SearchBox = ({ value, onChange }) => {
 //   const [user, setUser] = useState(null);
 //   const [searchParams, setSearchParams] = useSearchParams();

@@ -1,36 +1,39 @@
 import './Seach.styled.css';
 
-// import { searchMovie } from 'components/services/api';
-// import { useRef, useState } from 'react';
-// import { toast } from 'react-toastify';
+import { searchMovie } from 'components/services/api';
+import { useEffect, useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 // import { Movies } from 'Pages/Movies/Movies';
 
-export const Search = ({ handleChange, inputEL }) => {
-  // const [query, setQuery] = useState('');
-  // const [data, setData] = useState([{}]);
 
-  // const inputEL = useRef(null);
+// { handleChange, inputEL }
 
-  // const handleChange = e => {
-  //   e.preventDefault();
-  //   const data = inputEL.current.value;
-  //   if (data === '') {
-  //     return toast('Пуста строка! явно потрібно додати щось ще!');
-  //   }
-  //   return setQuery(data);
-  // };
+export const Search = () => {
+  const [query, setQuery] = useState('');
+  const [data, setData] = useState([{}]);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await searchMovie(query);
-  //     const data = response.results;
-  //     setData(data);
-  //   }
+  const inputEL = useRef(null);
 
-  //   fetchData();
-  // }, [query]);
+  const handleChange = e => {
+    e.preventDefault();
+    const data = inputEL.current.value;
+    if (data === '') {
+      return toast('Пуста строка! явно потрібно додати щось ще!');
+    }
+    return setQuery(data);
+  };
 
-  // const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
+  useEffect(() => {
+    async function fetchData() {
+      const response = await searchMovie(query);
+      const data = response.results;
+      setData(data);
+    }
+
+    fetchData();
+  }, [query]);
+
+  const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
 
   return (
     <>
@@ -47,7 +50,7 @@ export const Search = ({ handleChange, inputEL }) => {
         </button>
       </form>
 
-      {/* <ul className="moviesList">
+      <ul className="moviesList">
         {data.map(({ id, title, poster_path, overview, popularity }) => (
           <li key={id} className="movieListItem">
             {poster_path && (
@@ -60,7 +63,7 @@ export const Search = ({ handleChange, inputEL }) => {
             </div>
           </li>
         ))}
-      </ul> */}
+      </ul>
     </>
   );
 };

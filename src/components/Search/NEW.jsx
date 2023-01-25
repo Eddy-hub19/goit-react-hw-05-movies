@@ -2,8 +2,6 @@ import { Movies } from 'Pages/Movies/Movies';
 import { useRef, useState } from 'react';
 import { Search } from './Search';
 
-// Це те,що я пробував: воно не працює чомусь)) хоча вроді все прававильно в SearchBox повторював за Репетою тим прикладо,що в конспекті
-
 export const NEW = () => {
   const [query, setQuery] = useState('');
 
