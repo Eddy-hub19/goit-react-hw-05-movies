@@ -2,7 +2,7 @@
 import { searchMovie } from 'components/services/api';
 import { useEffect, useState } from 'react';
 
-export const Movies = ({query}) => {
+export const Movies = ({ query }) => {
   const [data, setData] = useState([{}]);
 
   useEffect(() => {
@@ -16,7 +16,12 @@ export const Movies = ({query}) => {
   }, [query]);
 
   const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
-  // const undefined = https://image.tmdb.org/t/p/w500//ljIwC5VyEu97IsE58MTQzoUOlhq.jpg
+  const undefinedImg =
+    'https://image.tmdb.org/t/p/w500//ljIwC5VyEu97IsE58MTQzoUOlhq.jpg';
+
+  if (undefinedImg) {
+    return;
+  }
 
   return (
     <>

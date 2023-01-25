@@ -1,5 +1,5 @@
 import { NEW } from 'components/Search/NEW';
-import { Search } from 'components/Search/Search';
+// import { Search } from 'components/Search/Search';
 import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
