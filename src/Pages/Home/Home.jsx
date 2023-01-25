@@ -11,13 +11,17 @@ export const Home = () => {
       const response = await getMovies();
       const res = response.results;
       setMovies(res);
+      console.log(res);
     }
 
     fetchData();
   }, []);
+
+  const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
+
   return (
     <div>
-      <h2 className='trendingTitle'>Trending today</h2>
+      <h2 className="trendingTitle">Trending today</h2>
       <ul
         style={{
           display: 'flex',
@@ -27,9 +31,14 @@ export const Home = () => {
         }}
         className="moviesList"
       >
-        {movies.map(({ id, title }) => (
+        {movies.map(({ id, title, backdrop_path }) => (
           <li key={id} className="movieItem">
-            <Link to={`movies/${id}`}>{title} Fight Club</Link>
+            <Link to={`movies/${id}`}>
+              {title}
+              {backdrop_path && (
+                <img width="300" src={baseImgUrl + backdrop_path} alt={title} />
+              )}
+            </Link>
           </li>
         ))}
       </ul>
