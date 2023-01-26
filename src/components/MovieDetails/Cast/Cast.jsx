@@ -23,7 +23,9 @@ const Cast = () => {
     <ul>
       {cast.map(({ id, name, character, profile_path }) => (
         <li key={id}>
-          <img src={baseImgUrl + profile_path} alt={profile_path} />
+          {profile_path && (
+            <img src={baseImgUrl + profile_path} alt={profile_path} />
+          )}
           <h4>{name}</h4>
           <p>{character}</p>
         </li>

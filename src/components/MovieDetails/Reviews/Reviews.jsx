@@ -10,28 +10,27 @@ const Reviews = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await reviewsMovie(movieId);
+      console.log(response);
       setMovieReviews(response.results);
     }
 
     fetchData();
   }, [movieId]);
 
-  if (movieReviews) {
-    return (
-      <div>
-        <h2>Reviews</h2>
-        <ul>
-          {movieReviews &&
-            movieReviews.map(({ author, content }) => (
-              <li key={author}>
-                <h2>Author: {author}</h2>
-                <p>Content: {content}</p>
-              </li>
-            ))}
-        </ul>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h2>Reviews</h2>
+      <ul>
+        {movieReviews &&
+          movieReviews.map(({ author, content }) => (
+            <li key={author}>
+              <h2>Author: {author}</h2>
+              <p>Content: {content}</p>
+            </li>
+          ))}
+      </ul>
+    </div>
+  );
 };
 
 export default Reviews;
