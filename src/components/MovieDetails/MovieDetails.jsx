@@ -1,12 +1,8 @@
-// '/movies/:movieId' - компонент MovieDetails, страница с детальной информацией о кинофильме.
-// import { Cast } from 'components/Cast/Cast';
-// import { Cast } from 'components/Cast/Cast';
-import { fetchMovieById } from 'components/services/api';
+import { fetchMovieById } from 'services/api';
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [dataMovie, setDataMovie] = useState(null);
-  console.log(dataMovie);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -25,7 +21,7 @@ export const MovieDetails = () => {
   const { poster_path, title, id, popularity, overview } = dataMovie;
   return (
     <>
-      <Link to={'/'}>back ¬ </Link>
+      <Link to={'/'}>back 🔙</Link>
       <ul>
         <li key={id}>
           {poster_path ? (
@@ -48,7 +44,8 @@ export const MovieDetails = () => {
         </li>
       </ul>
       <Outlet />
-      {/* <div>Now showing product with id - {movieId}</div> */}
     </>
   );
 };
+
+export default MovieDetails;

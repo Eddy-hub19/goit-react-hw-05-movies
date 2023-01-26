@@ -1,11 +1,17 @@
-// import { Search } from 'components/Search/Search';
+import React from 'react';
 import { Search } from 'components/Search/Search';
-// import { searchMovie } from 'components/services/api';
-// import { useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 
-export const Movies = () => {
-  return <Search />;
+const Movies = () => {
+  return (
+    <>
+      <Search />
+      <ToastContainer autoClose={2000} />
+    </>
+  );
 };
+
+export default Movies;
 
 // export const Movies = ({query}) => {
 //   const [data, setData] = useState([{}]);

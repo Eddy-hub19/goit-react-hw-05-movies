@@ -1,49 +1,57 @@
 import './Seach.styled.css';
+import 'react-toastify/dist/ReactToastify.css';
 
-import { searchMovie } from 'components/services/api';
-import { useEffect, useRef, useState } from 'react';
+import { searchMovie } from 'services/api';
+import { useState } from 'react';
 import { toast } from 'react-toastify';
-// import { Movies } from 'Pages/Movies/Movies';
-
-
-// { handleChange, inputEL }
+import { Link } from 'react-router-dom';
 
 export const Search = () => {
   const [query, setQuery] = useState('');
-  const [data, setData] = useState([{}]);
+  const [data, setData] = useState([]);
 
-  const inputEL = useRef(null);
-
-  const handleChange = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    const data = inputEL.current.value;
-    if (data === '') {
-      return toast('Пуста строка! явно потрібно додати щось ще!');
-    }
-    return setQuery(data);
-  };
 
-  useEffect(() => {
+    if (query === '') {
+      return toast.error('Пуста строка! явно потрібно додати щось ще!', {
+        position: 'top-right',
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+    }
+
     async function fetchData() {
       const response = await searchMovie(query);
-      const data = response.results;
-      setData(data);
+      setData(response.results);
     }
 
     fetchData();
-  }, [query]);
+
+    setQuery('');
+  };
+
+  const onChange = evt => {
+    setQuery(evt.target.value);
+  };
 
   const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
 
   return (
     <>
-      <form onSubmit={handleChange}>
+      <form onSubmit={handleSubmit}>
         <h2 className="formSearchTitle">Search</h2>
         <input
           className="formInput"
           type="text"
-          ref={inputEL}
+          value={query}
           placeholder="Fight Club"
+          onChange={onChange}
         />
         <button className="formSubmit" type="sumbit">
           Search 🔍
@@ -53,9 +61,11 @@ export const Search = () => {
       <ul className="moviesList">
         {data.map(({ id, title, poster_path, overview, popularity }) => (
           <li key={id} className="movieListItem">
-            {poster_path && (
-              <img width="300" src={baseImgUrl + poster_path} alt={title} />
-            )}
+            <Link to={`${id}`}>
+              {poster_path && (
+                <img width="300" src={baseImgUrl + poster_path} alt={title} />
+              )}
+            </Link>
             <div className="moviesWrap">
               <h2>{title}</h2>
               <span>{popularity}</span>
