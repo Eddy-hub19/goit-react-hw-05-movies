@@ -1,11 +1,9 @@
-// /movies/:movieId/cast - компонент Cast, информация о актерском составе. Рендерится на странице
-
 import { castMovie } from 'services/api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const Cast = () => {
-  const [cast, setCast] = useState([{}]);
+  const [cast, setCast] = useState([]);
   const { movieId } = useParams();
   useEffect(() => {
     async function fetchData() {

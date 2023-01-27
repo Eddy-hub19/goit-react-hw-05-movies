@@ -1,5 +1,3 @@
-// /movies/:movieId/reviews - компонент Reviews, информация об обзорах. Рендерится на странице MovieDetails.
-
 import { reviewsMovie } from 'services/api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';

@@ -5,7 +5,7 @@ import { getMovies } from 'services/api';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const [movies, setMovies] = useState([{}]);
+  const [movies, setMovies] = useState([]);
   useEffect(() => {
     async function fetchData() {
       const response = await getMovies();
